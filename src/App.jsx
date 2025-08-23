@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Comments from "./components/Comments";
 import PostSelector from "./components/PostSelector";
 
@@ -12,7 +12,9 @@ const App = () => {
     <div>
       <h1>React Suspense & Error Bounderies</h1>
       <div>
-        <PostSelector onSelectPost={handleSelectPost} />
+        <Suspense fallback={<h1>Suspene Loading . . .</h1>}>
+          <PostSelector onSelectPost={handleSelectPost} />
+        </Suspense>
         {selectPostId && <Comments postId={selectPostId} />}
       </div>
     </div>
