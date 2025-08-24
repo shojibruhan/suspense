@@ -15,7 +15,9 @@ const App = () => {
         <Suspense fallback={<h1>Suspene Loading . . .</h1>}>
           <PostSelector onSelectPost={handleSelectPost} />
         </Suspense>
-        {selectPostId && <Comments postId={selectPostId} />}
+        <Suspense fallback={<h1>Loading Comments . . .</h1>}>
+          {selectPostId && <Comments postId={selectPostId} />}
+        </Suspense>
       </div>
     </div>
   );
